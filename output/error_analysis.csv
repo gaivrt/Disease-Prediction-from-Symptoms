@@ -1,0 +1,2 @@
+Index,True Label,Predicted,Confidence,Active Symptoms
+41,Fungal infection,Impetigo,0.31789517402648926,"['itching', 'skin_rash', 'red_spots_over_body', 'family_history', 'skin_peeling', 'red_sore_around_nose']"
