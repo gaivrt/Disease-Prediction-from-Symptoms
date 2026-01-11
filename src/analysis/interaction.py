@@ -65,8 +65,8 @@ def analyze_interactions(top_n=20):
     plt.title(f"Symptom Co-occurrence Heatmap (Top {len(top_symptoms)} Symptoms)")
     plt.tight_layout()
     
-    os.makedirs('./output', exist_ok=True)
-    save_path = './output/symptom_co_occurrence.png'
+    os.makedirs('../../output', exist_ok=True)
+    save_path = '../../output/symptom_co_occurrence.png'
     plt.savefig(save_path)
     print(f"\nHeatmap saved to {save_path}")
 

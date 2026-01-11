@@ -4,7 +4,7 @@ import os
 from sklearn.preprocessing import LabelEncoder
 
 class DataLoader:
-    def __init__(self, data_dir='./dataset'):
+    def __init__(self, data_dir='../dataset'):
         self.data_dir = data_dir
         self.train_path = os.path.join(data_dir, 'training_data.csv')
         self.test_path = os.path.join(data_dir, 'test_data.csv')
