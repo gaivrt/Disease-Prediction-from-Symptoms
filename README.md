@@ -1,81 +1,77 @@
 # Disease Prediction from Symptoms
 
-This project explores the use of machine learning algorithms to predict diseases from symptoms. 
+A machine learning system for predicting diseases based on symptoms.
 
-### Algorithms Explored
+## Algorithms
 
-The following algorithms have been explored in code:
+- Naive Bayes
+- Decision Tree
+- Random Forest
 
-1. Naive Bayes
-2. Decision Tree
-3. Random Forest
-4. Gradient Boosting
+## Dataset
 
-# Dataset
+Source: [Kaggle - Disease Prediction Using Machine Learning](https://www.kaggle.com/kaushil268/disease-prediction-using-machine-learning)
 
-### Source-1
+- 132 symptom features
+- 41 disease classes
+- 4920 training samples, 42 test samples
 
-The dataset for this problem used with the `main.py` script is downloaded from here:
-
-```
-https://www.kaggle.com/kaushil268/disease-prediction-using-machine-learning
-```
-
-This dataset has 133 total columns, 132 of them being symptoms experienced by patiend and last column in prognosis for the same.
-
-### Source-2
-The dataset for this problem used with the Jupyter notebook is downloaded from here: 
-```
-https://impact.dbmi.columbia.edu/~friedma/Projects/DiseaseSymptomKB/index.html
-```
-
-This dataset has 3 columns:
-```
-Disease  | Count of Disease Occurrence | Symptom
-```
-
-You can either copy paste the whole table from here to an excel sheet or scrape it out using Beautifulsoup.
-
-# Directory Structure
+## Project Structure
 
 ```
-|_ dataset/
-         |_ training_data.csv
-         |_ test_data.csv
-
-|_ saved_model/
-         |_ [ pre-trained models ]
-
-|_ main.py [ code for laoding kaggle dataset, training & saving the model]
-
-|_ notebook/
-         |_ dataset/
-                  |_ raw_data.xlsx [Columbia dataset for notebook]
-         |_ Disease-Prediction-from-Symptoms-checkpoint.ipynb [ IPython Notebook for loading Columbia dataset, training model and Inference ]
+src/
+├── main.py           # CLI entry point
+├── train.py          # Training module
+├── evaluate.py       # Evaluation module
+├── demo.py           # Gradio control panel
+├── models/           # Model definitions
+│   ├── naive_bayes.py
+│   ├── decision_tree.py
+│   └── random_forest.py
+├── data/
+│   └── loader.py
+└── analysis/
+    └── interaction.py
 ```
 
-# Usage
+## Installation
 
-Please make sure to install all dependencies before running the demo, using the following:
-
-```
+```bash
 pip install -r requirements.txt
 ```
 
-## Interactive Demo
+## Usage
 
-For running an interactive demo or sharing it with others, please run `demo.py` using Jupyter Notebook or Jupyter Lab.
+### Command Line
 
+```bash
+cd src
+
+# Train all models
+python main.py train
+
+# Train specific model
+python main.py train --model random_forest
+
+# Evaluate all models
+python main.py evaluate
+
+# Evaluate specific model
+python main.py evaluate --model naive_bayes
 ```
-jupyter notebook demo.ipynb
+
+### Gradio Web Interface
+
+```bash
+cd src
+python demo.py
 ```
 
-## Standalone Demo
+Features:
+- **Train Tab**: Train models and view validation metrics
+- **Evaluate Tab**: Evaluate models on test set with Accuracy and Macro F1
+- **Predict Tab**: Interactive prediction with optional verification
 
-For running the inference on test set or on custom inputs, you can also use the `infr.py` file as follows:
+---
 
-```
-python infer.py
-```
-
-**NOTE:** ***This project is for demo purposes only. For any symptoms/disease, please refer to a Doctor.***
+*Disclaimer: This project is for educational purposes only. Please consult a Doctor for actual medical advice.*
